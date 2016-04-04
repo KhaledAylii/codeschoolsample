@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="WwE-k7-XZm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -127,8 +127,8 @@
                         <outlet property="emailTextField" destination="ZAb-Fy-FJM" id="hvp-SE-t1H"/>
                         <outlet property="passwordTextField" destination="bnp-JF-Ccr" id="RsW-It-EBm"/>
                         <outlet property="submitButton" destination="eRO-UX-MPG" id="xmx-MP-1G4"/>
-                        <segue destination="hyA-yW-uKY" kind="push" identifier="loginToApp" id="yNq-FQ-9lq"/>
-                        <segue destination="Dwk-IE-KD5" kind="push" identifier="selectUsername" id="pZg-Hw-49D"/>
+                        <segue destination="hyA-yW-uKY" kind="modal" identifier="loginToApp" id="yNq-FQ-9lq"/>
+                        <segue destination="Dwk-IE-KD5" kind="modal" identifier="selectUsername" id="pZg-Hw-49D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -214,7 +214,7 @@
                     <navigationItem key="navigationItem" id="w9v-Nj-2uw"/>
                     <connections>
                         <outlet property="usernameInput" destination="dTt-Hg-ANi" id="pgB-gd-Lub"/>
-                        <segue destination="hyA-yW-uKY" kind="push" identifier="loginToApp" id="6wu-p3-zFs"/>
+                        <segue destination="hyA-yW-uKY" kind="modal" identifier="loginToApp" id="6wu-p3-zFs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCL-wZ-9ln" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -471,24 +471,6 @@
             </objects>
             <point key="canvasLocation" x="2717" y="319"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="nOj-UK-Bdi">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="WwE-k7-XZm" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NvZ-ds-LTd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Cvq-Om-AnK"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UxG-6V-pe1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="130" y="319"/>
-        </scene>
         <!--Feed-->
         <scene sceneID="uOE-CZ-oib">
             <objects>
@@ -553,8 +535,7 @@
         <image name="photo-1434871619871-1f315a50efba" width="4621" height="3070"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jVc-vs-ZS4"/>
+        <segue reference="yNq-FQ-9lq"/>
         <segue reference="ZiG-GA-fTI"/>
-        <segue reference="6wu-p3-zFs"/>
     </inferredMetricsTieBreakers>
 </document>

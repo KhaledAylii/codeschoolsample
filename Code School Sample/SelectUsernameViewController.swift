@@ -11,14 +11,19 @@ import Firebase
 
 class SelectUsernameViewController: UIViewController {
     
+    // Constants
     let ref = Firebase(url: "https://codeschoolsample.firebaseio.com/")
     
+    // Variables
+    var currentUser: User!
+    
+    // Outlets
     @IBOutlet weak var usernameInput: UITextField!
     
+    // MARK: -Custom functions
     @IBAction func submit(sender: AnyObject) {
         
         let input = self.usernameInput.text!
-        let authData = ref.authData
         
         // Character set to check if username contains special characters
         let characterSet:NSCharacterSet = NSCharacterSet(charactersInString: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ0123456789")
@@ -67,7 +72,9 @@ class SelectUsernameViewController: UIViewController {
                 
                 if taken == false {
                     
-                    userRef.childByAppendingPath("\(authData.uid)").childByAppendingPath("username").setValue(input)
+                    let authData = self.ref.authData
+                    
+                    self.ref.childByAppendingPath("users").childByAppendingPath("\(authData.uid)").childByAppendingPath("username").setValue(input)
                     self.performSegueWithIdentifier("loginToApp", sender: nil)
                     
                 }

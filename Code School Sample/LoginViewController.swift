@@ -46,6 +46,20 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: -Navigation methods
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        // pass authData to username selection
+        if (segue.identifier == "selectUsername") {
+            
+            let destVc = segue.destinationViewController as! SelectUsernameViewController
+            destVc.currentUser = self.currentUser
+            
+        }
+        
+    }
 
     // MARK: -Custom functions
     
@@ -112,8 +126,21 @@ class LoginViewController: UIViewController {
                         
                         // We are now signed up
                         print("Successfully created user account with uid: \(uid)")
-                        self.performSegueWithIdentifier("selectUsername", sender: self)
                         
+                        // Authenticate new user
+                        self.ref.authUser(self.emailTextField.text, password: self.passwordTextField.text, withCompletionBlock: { (error, authData) -> Void in
+                            
+                            if error != nil {
+                                
+                                // There was an error logging in to this account
+                                print(error)
+                                
+                            } else {
+                                
+                                self.checkIfUsernameExists(authData)
+                            
+                            }
+                        })
                     }
             })
             
